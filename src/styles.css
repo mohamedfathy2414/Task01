@@ -1,0 +1,21 @@
+.bg-yellow:hover {
+    background-color: rgba(241, 241, 21, 0.3);
+    color: black;
+    border: none;
+  }
+  
+  .bg-green:hover {
+    background-color: rgba(21, 241, 50, 0.3);
+    color: black;
+    border: none;
+  }
+  
+  .bg-red:hover {
+    background-color: rgba(192, 58, 53, 0.3);
+    color: black;
+    border: none;
+  }
+  .grn {
+    color: rgba(9, 241, 9, 0.7);
+  }
+  

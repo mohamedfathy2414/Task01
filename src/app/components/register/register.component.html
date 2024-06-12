@@ -1,0 +1,52 @@
+<div class="w-75 mx-auto py-4">
+  <h4>register now</h4>
+  <div *ngIf="apiError" class="alert alert-danger">{{ apiError }}</div>
+  <form (ngSubmit)="handelRegister()" [formGroup]="registerForm">
+    <label for="name">email:</label>
+    <input
+      formControlName="email"
+      id="email"
+      class="form-control mb-2"
+      type="email"
+    />
+    <div
+      *ngIf="
+        registerForm.get('email')?.errors && registerForm.get('email')?.touched
+      "
+      class="alert alert-danger"
+    >
+      <p *ngIf="registerForm.get('email')?.getError('email')" class="m-0">
+        Invalid email
+      </p>
+      <p *ngIf="registerForm.get('email')?.getError('required')" class="m-0">
+        email is required
+      </p>
+    </div>
+    <label for="name">password:</label>
+    <input
+      formControlName="password"
+      id="password"
+      class="form-control mb-2"
+      type="password"
+    />
+    <div
+      *ngIf="
+        registerForm.get('password')?.errors &&
+        registerForm.get('password')?.touched
+      "
+      class="alert alert-danger"
+    >
+      <p *ngIf="registerForm.get('password')?.getError('pattern')" class="m-0">
+        must start with lowercase from 3 to 9 char
+      </p>
+      <p *ngIf="registerForm.get('password')?.getError('required')" class="m-0">
+        password is required
+      </p>
+    </div>
+
+    <button type="submit" class="btn bg-danger border-0">
+      <div *ngIf="isLoading" class="spinner-border" role="status"></div>
+      <span *ngIf="!isLoading">Register</span>
+    </button>
+  </form>
+</div>

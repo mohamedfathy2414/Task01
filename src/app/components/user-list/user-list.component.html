@@ -1,0 +1,77 @@
+<div class="d-flex justify-content-end">
+  <button
+    type="button"
+    class="btn btn-outline-secondary bg-yellow p-3 rounded-3 me-4 mt-3"
+    [routerLink]="['/newUser']"
+    routerLinkActive="router-link-active"
+  >
+    Add New user
+  </button>
+</div>
+<div class="container-fluid pt-4">
+  <div class="row">
+    <div class="col-12">
+      <div class="pt-4 table-responsive">
+        <table class="table table-light">
+          <thead>
+            <tr>
+              <th class="grn" scope="col">Avatar</th>
+              <th class="grn" scope="col">First name</th>
+              <th class="grn text-center" scope="col">Last name</th>
+              <th class="grn text-center" scope="col">User email</th>
+              <th class="grn" scope="col">Delete user</th>
+              <th class="grn" scope="col">Edit user</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (user of users; track user.id) {
+            <tr class="">
+              <td scope="row">
+                <img [src]="user.avatar" alt="" />
+              </td>
+              <td scope="row">
+                {{ user.first_name }}
+              </td>
+              <td class="text-center">{{ user.last_name }}</td>
+              <td class="text-center">{{ user.email }}</td>
+              <td>
+                <button
+                  (click)="deleteUser(user.id)"
+                  class="btn btn-outline-secondary bg-red"
+                >
+                  Delete
+                </button>
+              </td>
+              <td>
+                <button
+                  [routerLink]="['/users/', user.id]"
+                  class="btn btn-outline-secondary bg-green"
+                >
+                  Edit
+                </button>
+              </td>
+            </tr>
+
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="d-flex justify-content-center align-items-center mt-3 mb-3">
+  <div
+    class="btn-group text-black"
+    role="group"
+    aria-label="Basic mixed styles example"
+  >
+    <button type="button" class="btn me-2 Previous" (click)="prevPage()">
+      Prev
+    </button>
+    <span>Page {{ currentPage }}</span>
+    <button type="button" class="btn ms-2 Previous" (click)="nextPage()">
+      Next
+    </button>
+  </div>
+</div>

@@ -1,0 +1,64 @@
+<form
+  class="col-sm-10 col-md-10 col-lg-6 c mx-auto my-5 p-2"
+  (ngSubmit)="update(user.id, user)"
+  #updateuser="ngForm"
+>
+  <div
+    class="row justify-content-center bg-light align-items-center p-3 w-100 g-4"
+    style="color: #fff"
+  >
+    <div class="border-bottom pb-2 mb-2 w-75">
+      <div class="text-center fs-1 mt-4"></div>
+      <div class="col-12 p-0">
+        <h2 class="h2 grn text-center">Edit User</h2>
+      </div>
+    </div>
+
+    <div class="col-12">
+      <div class="mb-3 pb-2">
+        <label for="userName" class="form-label text-black">first name:</label>
+        <input
+          type="text"
+          class="form-control loginInput"
+          id="firstName"
+          placeholder=""
+          name="firstName"
+          [(ngModel)]="user.first_name"
+          #firstName="ngModel"
+        />
+      </div>
+      <div class="mb-3 pb-2">
+        <label for="userName" class="form-label text-black">last name:</label>
+        <input
+          type="text"
+          class="form-control loginInput"
+          id="lastname"
+          placeholder=""
+          name="lastName"
+          [(ngModel)]="user.last_name"
+          #firstName="ngModel"
+        />
+      </div>
+
+      <div class="mb-3 pb-2">
+        <label for="userEmail" class="form-label text-black">email:</label>
+        <input
+          type="email"
+          class="form-control loginInput"
+          id="email"
+          placeholder=""
+          name="email"
+          [(ngModel)]="user.email"
+          #email="ngModel"
+        />
+      </div>
+    </div>
+    <div class="col-12 my-4 d-flex justify-content-center">
+      <input
+        type="submit"
+        value="Edit"
+        class="py-2 btn btn-outline-secondary bg-green rounded-2 px-5"
+      />
+    </div>
+  </div>
+</form>

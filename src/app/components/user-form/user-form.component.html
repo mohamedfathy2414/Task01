@@ -1,0 +1,101 @@
+<form
+  class="col-lg-6 col-md-10 col-sm-10 mx-auto my-5"
+  (ngSubmit)="add()"
+  [formGroup]="UserForm"
+>
+  <div
+    class="row justify-content-center bg-light align-items-center p-3 w-100 g-4"
+  >
+    <div class="border-bottom pb-2 mb-2 w-75">
+      <div class="text-center fs-1 mt-4"></div>
+      <div class="col-12 p-0">
+        <h2 class="grn text-center">Add New User</h2>
+      </div>
+    </div>
+
+    <div class="col-12">
+      <div class="mb-3">
+        <label for="userName" class="form-label text-black"> first name:</label>
+        <input
+          formControlName="first_name"
+          type="text"
+          class="form-control loginInput"
+          id="firstName"
+          placeholder=""
+          name="first_name"
+        />
+        <div
+          *ngIf="
+            UserForm.get('first_name')?.errors &&
+            UserForm.get('first_name')?.touched
+          "
+          class="alert alert-danger"
+        >
+          <p
+            *ngIf="UserForm.get('first_name')?.getError('required')"
+            class="m-0"
+          >
+            first name is required
+          </p>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="userName" class="form-label text-black"> last name :</label>
+        <input
+          formControlName="last_name"
+          type="text"
+          class="form-control loginInput"
+          id="lastname"
+          placeholder=""
+          name="lastName"
+        />
+        <div
+          *ngIf="
+            UserForm.get('last_name')?.errors &&
+            UserForm.get('last_name')?.touched
+          "
+          class="alert alert-danger"
+        >
+          <p
+            *ngIf="UserForm.get('last_name')?.getError('required')"
+            class="m-0"
+          >
+            last name is required
+          </p>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="userEmail" class="form-label text-black">email:</label>
+        <input
+          formControlName="email"
+          type="email"
+          class="form-control loginInput"
+          id="userEmail"
+          placeholder=""
+          name="email"
+        />
+        <div
+          *ngIf="
+            UserForm.get('email')?.errors && UserForm.get('email')?.touched
+          "
+          class="alert alert-danger"
+        >
+          <p *ngIf="UserForm.get('email')?.getError('email')" class="m-0">
+            Invalid email
+          </p>
+          <p *ngIf="UserForm.get('email')?.getError('required')" class="m-0">
+            email is required
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 my-4 d-flex justify-content-center">
+      <input
+        type="submit"
+        value="Add"
+        class="loginInput py-2 border-0 rounded-2 px-5 bg-green"
+      />
+    </div>
+  </div>
+</form>

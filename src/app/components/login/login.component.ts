@@ -53,7 +53,9 @@ export class LoginComponent implements OnDestroy {
           this.apiError = err.error.error;
           this.isLoading = false;
 
-          this._Router.navigate(['/register']);
+          setTimeout(() => {
+            this._Router.navigate(['/register']);
+          }, 1000);
         },
       });
   }
